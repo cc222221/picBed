@@ -30,7 +30,7 @@ private:
 
 	MYSQL_RES *m_res;		// 该结构代表返回行的查询结果（SELECT, SHOW, DESCRIBE, EXPLAIN）
 	MYSQL_ROW m_row;		// 这是1行数据的“类型安全”表示。它目前是按照计数字节字符串的数组实施的。
-	map<string, int> m_key_map;
+	map<string, int> m_key_map;//保存列名和索引
 };
 
 // 插入数据用
@@ -160,6 +160,7 @@ private:
 	map<string, CDBPool *> m_dbpool_map;
 };
 
+//自动析构
 class AutoRelDBCon
 {
 public:
