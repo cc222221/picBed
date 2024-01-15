@@ -23,7 +23,7 @@ int64_t getNowMs();
 /////////////////////////////////////////////////
 /**
  * @file thread_pool.h
- * @brief 线程池类,采用c++11来实现了，
+ * @brief 线程池类,采用c++11来实现，
  * 使用说明:
  * ThreadPool tpool;
  * tpool.init(5);   //初始化线程池线程数
@@ -64,7 +64,7 @@ protected:
         {
         }
 
-        std::function<void()> _func;
+        std::function<void()> _func; //封装回调函数
         int64_t _expireTime = 0; //超时的绝对时间
     };
     typedef shared_ptr<TaskFunc> TaskFuncPtr;
