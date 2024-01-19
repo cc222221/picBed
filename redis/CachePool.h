@@ -1,13 +1,6 @@
-/*
- * @Author: your name
- * @Date: 2019-12-07 10:54:57
- * @LastEditTime : 2020-01-10 16:35:13
- * @LastEditors  : Please set LastEditors
- * @Description: In User Settings Edit
- * @FilePath: \src\cache_pool\CachePool.h
- */
-#ifndef CACHEPOOL_H_
-#define CACHEPOOL_H_
+
+#ifndef  CACHEPOOL_H
+#define  CACHEPOOL_H
 
 #include <iostream>
 #include <vector>
@@ -127,11 +120,11 @@ private:
 	string m_server_ip;
 	string m_password;
 	int m_server_port;
-	int m_db_index; // mysql 数据库名字， redis db index
+	int m_db_index; // mysql 数据库名字， redis db index 1到16
 
-	int m_cur_conn_cnt;
-	int m_max_conn_cnt;
-	list<CacheConn *> m_free_list;
+	int m_cur_conn_cnt;  //current connection count
+	int m_max_conn_cnt;  //max connection count
+	list<CacheConn *> m_free_list; //free connections list
 
 	std::mutex m_mutex;
 	std::condition_variable m_cond_var;

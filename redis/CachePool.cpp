@@ -153,7 +153,7 @@ string CacheConn::get(string key)
 {
 	string value;
 
-	if (Init())
+	if (Init())  //0 1
 	{
 		return value;
 	}
@@ -370,6 +370,7 @@ string CacheConn::hget(string key, string field)
 	freeReplyObject(reply);
 	return ret_value;
 }
+
 int CacheConn::hget(string key, char *field, char *value)
 {
 	int retn = 0;
@@ -398,6 +399,7 @@ END:
 
 	return retn;
 }
+
 bool CacheConn::hgetAll(string key, map<string, string> &ret_value)
 {
 	if (Init())
@@ -667,6 +669,7 @@ long CacheConn::rpush(string key, string value)
 	return ret_value;
 }
 
+//获得链表的长度
 long CacheConn::llen(string key)
 {
 	if (Init())
@@ -688,6 +691,7 @@ long CacheConn::llen(string key)
 	return ret_value;
 }
 
+//获取指定范围内的列表元素
 bool CacheConn::lrange(string key, long start, long end, list<string> &ret_value)
 {
 	if (Init())
@@ -718,6 +722,7 @@ bool CacheConn::lrange(string key, long start, long end, list<string> &ret_value
 	return true;
 }
 
+//确定有序集合中是否存在member元素
 int CacheConn::ZsetExit(string key, string member)
 {
 	int retn = 0;
@@ -745,6 +750,7 @@ END:
 	return retn;
 }
 
+//有序集合中添加成员
 int CacheConn::ZsetAdd(string key, long score, string member)
 {
 	int retn = 0;
@@ -773,6 +779,7 @@ END:
 	return retn;
 }
 
+//有序集合中移除指定成员
 int CacheConn::ZsetZrem(string key, string member)
 {
 	int retn = 0;
@@ -796,6 +803,8 @@ END:
 	freeReplyObject(reply);
 	return retn;
 }
+
+//增加有序集合中指定成员的分数的函数
 int CacheConn::ZsetIncr(string key, string member)
 {
 	int retn = 0;
@@ -820,6 +829,7 @@ END:
 	return retn;
 }
 
+//获取有序集合中成员的数量
 int CacheConn::ZsetZcard(string key)
 {
 	int retn = 0;
@@ -845,6 +855,15 @@ END:
 	freeReplyObject(reply);
 	return cnt;
 }
+
+//获取有序集合中指定范围内的成员
+/*
+    key：要操作的 Redis 有序集合的 key。
+    from_pos：要获取的成员范围的起始位置。
+    end_pos：要获取的成员范围的结束位置。
+    values：一个字符串数组，用于存储获取到的有序集合成员。
+    get_num：一个整数引用，用于存储获取到的有序集合成员数量。
+*/
 int CacheConn::ZsetZrevrange(string key, int from_pos, int end_pos, RVALUES values, int &get_num)
 {
 	int retn = 0;
@@ -889,6 +908,7 @@ END:
 	return retn;
 }
 
+//获取有序集合中指定成员的分数
 int CacheConn::ZsetGetScore(string key, string member)
 {
 	if (Init())
@@ -916,6 +936,7 @@ END:
 	return score;
 }
 
+//清空当前数据库中的所有数据
 bool CacheConn::flushdb()
 {
 	bool ret = false;
@@ -933,7 +954,7 @@ bool CacheConn::flushdb()
 		return false;
 	}
 
-	if (reply->type == REDIS_REPLY_STRING && strncmp(reply->str, "OK", 2) == 0)
+	if (reply->type == REDIS_REPLY_STRING && strncmp(reply->str, "OK", 2) == 0)//比较字符为2
 	{
 		ret = true;
 	}
@@ -942,6 +963,9 @@ bool CacheConn::flushdb()
 
 	return ret;
 }
+
+
+
 ///////////////
 CachePool::CachePool(const char *pool_name, const char *server_ip, int server_port, int db_index,
 					 const char *password, int max_conn_cnt)
@@ -975,6 +999,7 @@ CachePool::~CachePool()
 	m_cur_conn_cnt = 0;
 }
 
+//初始化连接池
 int CachePool::Init()
 {
 	for (int i = 0; i < m_cur_conn_cnt; i++)
@@ -994,6 +1019,7 @@ int CachePool::Init()
 	return 0;
 }
 
+//从连接池取得连接
 CacheConn *CachePool::GetCacheConn(const int timeout_ms)
 {
 	std::unique_lock<std::mutex> lock(m_mutex);
@@ -1014,7 +1040,6 @@ CacheConn *CachePool::GetCacheConn(const int timeout_ms)
 				log_info("wait ms:%d\n", timeout_ms);
 				m_cond_var.wait(lock, [this]
 								{
-					// 当前连接数量小于最大连接数量 或者请求释放连接池时退出
 					return (!m_free_list.empty()) | m_abort_request; });
 			}
 			else
