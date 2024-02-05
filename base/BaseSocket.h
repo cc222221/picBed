@@ -1,6 +1,7 @@
 /*
  *  a wrap for non-block socket class for Windows, LINUX and MacOS X platform
  */
+/*非阻塞socket  io*/
 
 #ifndef __SOCKET_H__
 #define __SOCKET_H__

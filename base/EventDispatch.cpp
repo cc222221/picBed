@@ -19,7 +19,7 @@ CEventDispatch::CEventDispatch()
 		printf("kqueue failed");
 	}
 #else
-	m_epfd = epoll_create(1024);
+	m_epfd = epoll_create(1024);//只要传入一个大于0的数即可
 	if (m_epfd == -1)
 	{
 		printf("epoll_create failed");
@@ -83,7 +83,7 @@ void CEventDispatch::_CheckTimer()
 	for (it = m_timer_list.begin(); it != m_timer_list.end();)
 	{
 		TimerItem *pItem = *it;
-		it++; // iterator maybe deleted in the callback, so we should increment it before callback
+		it++; // iterator may be deleted in the callback, so we should increment it before callback
 		if (curr_tick >= pItem->next_tick)
 		{
 			pItem->next_tick += pItem->interval;
@@ -362,7 +362,7 @@ void CEventDispatch::StartDispatch(uint32_t wait_timeout)
 
 	while (running)
 	{
-		nfds = epoll_wait(m_epfd, events, 1024, wait_timeout);
+		nfds = epoll_wait(m_epfd, events, 1024, wait_timeout); //1024为就绪队列的大小,nfds是从events数组中拿出来的数量
 		for (int i = 0; i < nfds; i++)
 		{
 			int ev_fd = events[i].data.fd;
@@ -370,11 +370,10 @@ void CEventDispatch::StartDispatch(uint32_t wait_timeout)
 			if (!pSocket)
 				continue;
 
-// Commit by zhfu @2015-02-28
 #ifdef EPOLLRDHUP
 			if (events[i].events & EPOLLRDHUP)
 			{
-				// printf("On Peer Close, socket=%d, ev_fd);
+				// printf("On Peer Close, socket=%d, ev_fd);  表示对端套接字已经关闭，或者是半关闭的写操作
 				pSocket->OnClose();
 			}
 #endif

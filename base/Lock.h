@@ -40,10 +40,10 @@ class CRWLock
 public:
     CRWLock();
     virtual ~CRWLock();
-    void rlock();
-    void wlock();
-    void unlock();
-    bool try_rlock();
+    void rlock();  //读锁
+    void wlock();  //写锁
+    void unlock();  //解锁
+    bool try_rlock(); //上读锁
     bool try_wlock();
 
 private:

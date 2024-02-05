@@ -85,7 +85,7 @@ enum
     NETLIB_ERROR = -1
 };
 
-#define NETLIB_INVALID_HANDLE -1
+#define NETLIB_INVALID_HANDLE    -1
 
 enum
 {
@@ -98,7 +98,7 @@ enum
     NETLIB_MSG_LOOP
 };
 
-const uint32_t INVALID_UINT32 = (uint32_t)-1;
+const uint32_t INVALID_UINT32 = (uint32_t)-1;//十六进制表示的4294967295
 const uint32_t INVALID_VALUE = 0;
 
 typedef void (*callback_t)(void *callback_data, uint8_t msg, uint32_t handle, void *pParam);

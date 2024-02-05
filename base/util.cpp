@@ -47,7 +47,7 @@ void CRefObject::ReleaseRef()
     }
 }
 
-uint64_t get_tick_count()
+uint64_t get_tick_count() //现在的时间，精确到秒
 {
 #ifdef _WIN32
     LARGE_INTEGER liCounter;
