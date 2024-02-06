@@ -1,7 +1,7 @@
 /*
  * HttpConn.cpp
- *  Modify on: 2022-10-30
- * 		Author: darren
+ *  Modify on: 2024-1-30
+ * 		Author: cyfpp
  *  Created on: 2013-9-29
  *      Author: ziteng@mogujie.com
  */
@@ -19,6 +19,7 @@
 #include "ApiSharepicture.h"
 #include "ApiMd5.h"
 #include "ApiUpload.h"
+
 static HttpConnMap_t g_http_conn_map;
 
 extern string strMsfsUrl;

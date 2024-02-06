@@ -86,6 +86,7 @@ CByteStream::CByteStream(CSimpleBuffer *pSimpBuf, uint32_t pos)
 	m_len = 0;
 }
 
+//在64位架构中，
 int16_t CByteStream::ReadInt16(uchar_t *buf)
 {
 	int16_t data = (buf[0] << 8) | buf[1];

@@ -1,6 +1,8 @@
 #ifndef _CONFIG_H
 #define _CONFIG_H
 
+//该文件是为了解析业务中的字符串
+
 #include <string>
 using std::string;
 
@@ -25,9 +27,9 @@ using std::string;
 #define HTTP_RESP_OK 0
 #define HTTP_RESP_FAIL 1           //
 #define HTTP_RESP_USER_EXIST 2     // 用户存在
-#define HTTP_RESP_DEALFILE_EXIST 3 // 别人已经分享此文件
+#define HTTP_RESP_DEALFILE_EXIST 3 // 别人已经分享此文件-----如何知道别人已经分享过此文件？
 #define HTTP_RESP_TOKEN_ERR 4      //  token验证失败
-#define HTTP_RESP_FILE_EXIST 5     //个人已经存储了该文件
+#define HTTP_RESP_FILE_EXIST 5     //个人已经存储了该文件-----依靠中间消息传递
 
 #define UNUSED(expr)  \
     do                \

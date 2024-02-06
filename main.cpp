@@ -33,7 +33,7 @@ int InitLog()
 {
     printf("pid = %d\n", getpid());
 
-    char name[256] = "tuchuang";
+    char name[256] = "PicBed";
     // strncpy(name, argv[0], sizeof name - 1);
     // 回滚大小kRollSize（1M）, 最大1秒刷一次盘（flush）
     AsyncLogging log(::basename(name), kRollSize, 1);  // 注意，每个文件的大小 还取决于时间的问题，不是到了大小就一定换文件。

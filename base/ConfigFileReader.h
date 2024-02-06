@@ -4,6 +4,7 @@
 
 #include "util.h"
 
+//一次性解析文件，将其放入内存，再去读取
 class CConfigFileReader
 {
 public:

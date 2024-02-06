@@ -49,44 +49,53 @@ int TrimSpace(char *inbuf)
     return 0;
 }
  
-
-/**
+/*提炼出共性*//**
  * @brief  解析url query 类似 abc=123&bbb=456 字符串
- *          传入一个key,得到相应的value
+ *          传入一个key,得到相应的value  ----key=bbb, value=456 
  * @returns
  *          0 成功, -1 失败
  */
-int QueryParseKeyValue(const char *query, const char *key, char *value, int *value_len_p)
+int QueryParseKeyValue(const char *query, const char *key, char *value, int value_max_len, int *value_len_p)
 {
+    if (query == NULL || key == NULL || value == NULL) {
+        return -1; // 参数检查
+    }
+
     char *temp = NULL;
     char *end = NULL;
+    int key_len = strlen(key);
     int value_len = 0;
 
-    //找到是否有key
-    temp = (char *)strstr(query, key);
-    if (temp == NULL)
-    {
+    // 找到是否有key，并确保它是独立的key
+    temp = (char *)query;
+    while ((temp = strstr(temp, key)) != NULL) {
+        if (temp[key_len] == '=' && (temp == query || *(temp - 1) == '&')) {
+            break; // 确保找到的是完整的key
+        }
+        temp += key_len; // 继续搜索
+    }
+
+    if (temp == NULL) {
         return -1;
     }
 
-    temp += strlen(key); //=
-    temp++;              // value
+    temp += key_len + 1; // 跳过"key="
 
-    // get value
+    // 获取value
     end = temp;
-
-    while ('\0' != *end && '#' != *end && '&' != *end)
-    {
+    while ('\0' != *end && '#' != *end && '&' != *end) {
         end++;
     }
 
     value_len = end - temp;
+    if (value_len >= value_max_len) {
+        return -1; // 确保不会溢出
+    }
 
     strncpy(value, temp, value_len);
     value[value_len] = '\0';
 
-    if (value_len_p != NULL)
-    {
+    if (value_len_p != NULL) {
         *value_len_p = value_len;
     }
 
@@ -190,6 +199,8 @@ string RandomString(const int len) /*参数为字符串的长度*/
     return str; /*返回生成的随机字符串*/
 }
 
+
+//
 template <typename... Args>
 std::string formatString(const std::string &format, Args... args)
 {
