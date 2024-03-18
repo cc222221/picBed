@@ -35,4 +35,7 @@
 `--------------------------------------------------------*/
 #define FILE_NAME_HASH "FILE_NAME_HASH"
 
+#define FILE_PUBLIC_COUNT "FILE_PUBLIC_COUNT"  // 共享文件数量
+#define FILE_USER_COUNT "FILE_USER_COUNT"   // 用户文件数量 FILE_USER_COUNT+username
+#define SHARE_PIC_COUNT "SHARE_PIC_COUNT"   // 用户分享图片数量 SHARE_PIC_COUNT+username
 #endif
