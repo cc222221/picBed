@@ -27,7 +27,7 @@ include_directories()
 
 #ADD_XXXX必须在TARGET_LINK_LIBRARIES前面，否则会报错
 #ADD_LIBRARY(${PROJECTNAME} SHARED/STATIC ${SRC_LIST})
-ADD_EXECUTABLE(tc_test  ${BASE_LIST} ${API_LIST} ${LOG_LIST}
+ADD_EXECUTABLE(picbed_test  ${BASE_LIST} ${API_LIST} ${LOG_LIST}
         ${MYSQL_LIST} ${REDIS_LIST} ${JSON_LIST} ${SRC_LIST} ${COMMON_LIST})
 
-TARGET_LINK_LIBRARIES(tc_test  pthread fdfsclient fastcommon hiredis m mysqlclient) 
+TARGET_LINK_LIBRARIES(picbed_test  pthread fdfsclient fastcommon hiredis m mysqlclient) 
