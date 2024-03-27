@@ -88,7 +88,7 @@ int main(int argc, char *argv[]) {
     UNUSED(argc);
     UNUSED(argv);
 
-    // 初始化日志，暂且只是打印到屏幕上，课程不断迭代
+    //todo:: 初始化日志，暂且只是打印到屏幕上----待更新
     initLog();
 
     // 初始化mysql、redis连接池，内部也会读取读取配置文件picbed_http_server.conf

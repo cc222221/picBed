@@ -1,15 +1,16 @@
 # 1 Project Description
 
 ```
-this project aims to build a server for a software which provides users to 
-upload, download, store, share pictures and others files of content size being below 512 Bytes
+this project aims to build a web server for a software which provides users to upload, download, store, share pictures and others files of content size being below 512 Bytes
 
 ```
 # 2 How to build this project
 
 ```
 this project depends on those libraries: 
-/usr/include/fastdfs /usr/include/fastcommon /usr/local/include/hiredis /usr/include/mysql; you may download these libraries by git clone from github and compile them, they will store /usr/include/
+/usr/include/fastdfs /usr/include/fastcommon /usr/local/include/hiredis
+/usr/include/mysql; you may download these libraries by git clone 
+from github and compile them, they will be stored in /usr/include/
 
 first:  mkdir build
 second: cmake ..

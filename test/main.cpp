@@ -7,9 +7,6 @@
  * 5.本项目内头文件
  */
 
-// using std::string; // 可以在整个cc文件和h文件内使用using， 禁止使用using
-// namespace xx污染命名空间
-
 #include "cache_pool.h"
 #include "config_file_reader.h"
 #include "db_pool.h"
@@ -57,7 +54,7 @@ void deInitLog() {
 int main(int argc, char *argv[]) {
     signal(SIGPIPE, SIG_IGN);
 
-    // 初始化日志，暂且只是打印到屏幕上，课程不断迭代
+    //todo::初始化日志，暂且只是打印到屏幕上----待更新
     initLog();
 
     // 初始化mysql、redis连接池，内部也会读取读取配置文件picbed_http_server.conf
