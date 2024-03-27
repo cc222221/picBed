@@ -11,7 +11,7 @@
 #define MAX_CACHE_CONN_FAIL_NUM 10
 
 #include "config_file_reader.h"
-#include "tc_logging.h"
+#include "picbed_logging.h"
 
 CacheManager *CacheManager::s_cache_manager = NULL;
 
@@ -998,7 +998,7 @@ CacheManager *CacheManager::getInstance() {
 }
 
 int CacheManager::Init() {
-    CConfigFileReader config_file("tc_http_server.conf");
+    CConfigFileReader config_file("picbed_http_server.conf");
 
     char *cache_instances = config_file.GetConfigName("CacheInstances");
     if (!cache_instances) {

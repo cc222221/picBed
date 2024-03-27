@@ -3,7 +3,7 @@
 
 #include "config_file_reader.h"
 
-#include "tc_logging.h"
+#include "picbed_logging.h"
 
 #define MIN_DB_CONN_CNT 1
 #define MAX_DB_CONN_FAIL_NUM 10
@@ -517,7 +517,7 @@ CDBManager *CDBManager::getInstance() {
 }
 
 int CDBManager::Init() {
-    CConfigFileReader config_file("tc_http_server.conf");
+    CConfigFileReader config_file("picbed_http_server.conf");
 
     char *db_instances = config_file.GetConfigName("DBInstances");
 

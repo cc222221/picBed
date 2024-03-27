@@ -1,10 +1,10 @@
 #数据库表
 #创建数据库
-DROP DATABASE IF EXISTS `0voice_tuchuang_index`;
-CREATE DATABASE `0voice_tuchuang_index`;
+DROP DATABASE IF EXISTS `picbed_db_index`;
+CREATE DATABASE `picbed_db_index`;
 
 #使用数据库
-use `0voice_tuchuang_index`;
+use `_picbed_db_index`;
 
 
 DROP TABLE IF EXISTS `file_info`;

@@ -3,7 +3,7 @@
 //
 // Author: Shuo Chen (chenshuo at chenshuo dot com)
 
-#include "tc_logging.h"
+#include "picbed_logging.h"
 
 #include "timestamp.h"
 #include "timezone.h"

@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.0)
-PROJECT(tc_http_server)
+PROJECT(picbed_http_server)
 
 
 # AUX_SOURCE_DIRECTORY(./common COMMON_LIST)
@@ -28,7 +28,7 @@ INCLUDE_DIRECTORIES(./)
 
 #ADD_XXXX必须在TARGET_LINK_LIBRARIES前面，否则会报错
 #ADD_LIBRARY(${PROJECTNAME} SHARED/STATIC ${SRC_LIST})
-ADD_EXECUTABLE(tc_http_server ${SRC_LIST} ${BASE_LIST} ${API_LIST} ${LOG_LIST}
+ADD_EXECUTABLE(picbed_http_server ${SRC_LIST} ${BASE_LIST} ${API_LIST} ${LOG_LIST}
         ${MYSQL_LIST} ${REDIS_LIST} ${JSON_LIST} )
 
-TARGET_LINK_LIBRARIES(tc_http_server pthread fdfsclient fastcommon  m mysqlclient) 
+TARGET_LINK_LIBRARIES(picbed_http_server pthread fdfsclient fastcommon  m mysqlclient) 

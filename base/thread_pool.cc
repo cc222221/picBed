@@ -1,4 +1,4 @@
-#include "tc_thread_pool.h"
+#include "thread_pool.h"
 
 ThreadPool::ThreadPool() : thread_num_(1), terminate_(false) {}
 
@@ -151,7 +151,7 @@ void getNow(timeval *tv) {
     if (fabs(_cpu_cycle - 0) < 0.0001 && _use_tsc) {
         addTimeOffset(*tv, idx);
     } else {
-        TC_Common::gettimeofday(*tv);
+        Common::gettimeofday(*tv);
     }
 #else
     gettimeofday(*tv);

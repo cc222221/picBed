@@ -4,7 +4,7 @@
 // Author: Shuo Chen (chenshuo at chenshuo dot com)
 
 #include "file_util.h"
-#include "tc_logging.h"
+#include "picbed_logging.h"
 
 #include <assert.h>
 #include <errno.h>

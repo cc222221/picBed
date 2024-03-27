@@ -17,7 +17,7 @@
 #include "config_file_reader.h"
 #include "http_conn.h"
 #include "netlib.h"
-#include "tc_logging.h"
+#include "picbed_logging.h"
 #include "util.h"
 //
 off_t kRollSize = 1 * 1000 * 1000; // 只设置1M
@@ -91,7 +91,7 @@ int main(int argc, char *argv[]) {
     // 初始化日志，暂且只是打印到屏幕上，课程不断迭代
     initLog();
 
-    // 初始化mysql、redis连接池，内部也会读取读取配置文件tc_http_server.conf
+    // 初始化mysql、redis连接池，内部也会读取读取配置文件picbed_http_server.conf
     CacheManager *cache_manager = CacheManager::getInstance();
     if (!cache_manager) {
         LOG_ERROR << "CacheManager init failed";
@@ -107,7 +107,7 @@ int main(int argc, char *argv[]) {
     }
 
     // 读取配置文件
-    CConfigFileReader config_file("tc_http_server.conf");
+    CConfigFileReader config_file("picbed_http_server.conf");
 
     char *http_listen_ip = config_file.GetConfigName("HttpListenIP");
     char *str_http_port = config_file.GetConfigName("HttpPort");

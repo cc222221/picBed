@@ -1,5 +1,5 @@
-#ifndef _TC_THREAD_POOL_H_
-#define _TC_THREAD_POOL_H_
+#ifndef THREAD_POOL_H_
+#define THREAD_POOL_H_
 
 #include <functional>
 #include <future>

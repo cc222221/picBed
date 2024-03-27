@@ -1,5 +1,5 @@
 #include "api_login.h"
-#include "tc_common.h"
+#include "common.h"
 #include "util.h"
 #define TEST_LOGIN_COUNT 200
 

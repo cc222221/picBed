@@ -1,11 +1,4 @@
-/*
- * @Author: your name
- * @Date: 2019-12-07 10:54:57
- * @LastEditTime : 2020-01-10 16:35:13
- * @LastEditors  : Please set LastEditors
- * @Description: In User Settings Edit
- * @FilePath: \src\cache_pool\cache_pool.h
- */
+
 #ifndef CACHEPOOL_H_
 #define CACHEPOOL_H_
 

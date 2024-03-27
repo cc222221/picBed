@@ -19,7 +19,7 @@
 #include "Async_logging.h"
 #include "api_dealfile.h"
 #include "api_upload.h"
-#include "tc_logging.h"
+#include "picbed_logging.h"
 
 extern void SingeThreadTestLogin();
 extern void SingeThreadRegister();
@@ -60,7 +60,7 @@ int main(int argc, char *argv[]) {
     // 初始化日志，暂且只是打印到屏幕上，课程不断迭代
     initLog();
 
-    // 初始化mysql、redis连接池，内部也会读取读取配置文件tc_http_server.conf
+    // 初始化mysql、redis连接池，内部也会读取读取配置文件picbed_http_server.conf
     CacheManager *cache_manager = CacheManager::getInstance();
     if (!cache_manager) {
         LOG_ERROR << "CacheManager init failed";
@@ -76,7 +76,7 @@ int main(int argc, char *argv[]) {
     }
 
     // 读取配置文件
-    CConfigFileReader config_file("tc_http_server.conf");
+    CConfigFileReader config_file("picbed_http_server.conf");
 
     char *dfs_path_client = config_file.GetConfigName("dfs_path_client");
     char *web_server_ip = config_file.GetConfigName("web_server_ip");

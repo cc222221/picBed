@@ -1,6 +1,6 @@
-#include "tc_common.h"
+#include "common.h"
 #include "cache_pool.h"
-#include "tc_logging.h"
+#include "picbed_logging.h"
 #include <ctype.h>
 #include <memory>
 #include <stdio.h>

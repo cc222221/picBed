@@ -5,7 +5,7 @@
 
 #include "api_common.h"
 #include "api_myfiles.h"
-#include "tc_logging.h"
+#include "picbed_logging.h"
 #include "json/json.h"
 #include <sys/time.h>
 

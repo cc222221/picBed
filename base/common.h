@@ -1,12 +1,12 @@
-#ifndef _TC_COMMON_H_
-#define _TC_COMMON_H_
+#ifndef COMMON_H_
+#define COMMON_H_
 
 #include <string>
 using std::string;
 
 #include "cache_pool.h"
 #include "db_pool.h"
-#include "tc_logging.h"
+#include "picbed_logging.h"
 #include "json/json.h"
 
 #define FILE_NAME_LEN (256)    //文件名字长度

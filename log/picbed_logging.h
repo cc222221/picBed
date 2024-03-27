@@ -3,8 +3,8 @@
 //  加tc前缀避免和系统文件的的其他logging.h有冲突，导致编译报错
 // Author: Shuo Chen (chenshuo at chenshuo dot com)
 
-#ifndef _TC_LOGGING_H_
-#define _TC_LOGGING_H_
+#ifndef PICBED_LOGGING_H_
+#define PICBED_LOGGING_H_
 
 #include "log_stream.h"
 #include "timestamp.h"
@@ -119,8 +119,6 @@ inline Logger::LogLevel Logger::logLevel() { return g_logLevel; }
 
 const char *strerror_tl(int savedErrno);
 
-// Taken from glog/tc_logging.h
-//
 // Check that the input is non NULL.  This very useful in constructor
 // initializer lists.
 

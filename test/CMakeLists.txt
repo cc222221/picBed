@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 2.6)
-PROJECT(tc_test)
+PROJECT(picbed_test)
 
 AUX_SOURCE_DIRECTORY(./ SRC_LIST)
 AUX_SOURCE_DIRECTORY(../common COMMON_LIST)

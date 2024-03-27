@@ -3,8 +3,8 @@
 #include "cache_pool.h"
 #include "db_pool.h"
 #include "redis_keys.h"
-#include "tc_common.h"
-#include "tc_logging.h"
+#include "common.h"
+#include "picbed_logging.h"
 #include "json/json.h"
 #include <string>
 

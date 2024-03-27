@@ -1,7 +1,7 @@
 /*
  * HttpConn.cpp
- *  Modify on: 2022-10-30
- * 		Author: darren
+ *  Modify on: 2023-10-30
+ * 		Author: cc
  *  Created on: 2013-9-29
  *      Author: ziteng@mogujie.com
  */
